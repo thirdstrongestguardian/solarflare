@@ -1,7 +1,7 @@
 {
   "name": "solarflare",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "A javascript framework.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,9 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/thirdstrongestguardian/solarflare.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "framework"
+  ],
+  "author": "William R. Hansen",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/thirdstrongestguardian/solarflare/issues"
   },
