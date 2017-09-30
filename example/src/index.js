@@ -1,3 +1,3 @@
 var solarflare = require('../..');
 
-solarflare();
+console.log(solarflare(['div', document.createElement('h1')]));

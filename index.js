@@ -1,1 +1,1 @@
-module.exports = require('./lib/solarflare.js');
+module.exports = require('./lib/solarflare');
