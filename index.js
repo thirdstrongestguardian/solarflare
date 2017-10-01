@@ -23,7 +23,7 @@ var solarflare = function (rays) {
 				if (Array.isArray(e)) {
 					$element.appendChild(solarflare(e));
 				} else {
-					Object.keys(e).filter((key) => {
+					Object.keys(e).filter(function (key) {
 						$element.setAttribute(key, e[key]);
 					});
 				}
