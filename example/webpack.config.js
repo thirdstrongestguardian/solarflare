@@ -7,7 +7,6 @@ module.exports = {
     path: path.resolve(__dirname, 'public')
   },
   devServer: {
-    contentBase: './public',
-    hot: true
+    contentBase: './public'
   }
 };

@@ -1,5 +1,5 @@
-var solarflare = require('../..');
+var solarflare = require('solarflare');
 
-var element = solarflare(['div', document.createElement('h1')]);
+var element = solarflare(['div', ['h1', 'Hello World']]);
 
 document.body.appendChild(element);

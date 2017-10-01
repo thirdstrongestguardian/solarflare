@@ -69,41 +69,19 @@
 
 var solarflare = __webpack_require__(1);
 
-console.log(solarflare(['div', document.createElement('h1')]));
+var element = solarflare(['div', document.createElement('h1')]);
+
+document.body.appendChild(element);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(2);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const el = __webpack_require__(3);
-const http = __webpack_require__(4);
-const mount = __webpack_require__(5);
-
-var solarflare = el;
-solarflare.http = http;
-solarflare.mount = mount;
-
-module.exports = solarflare
-
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
-var el;
-
-el = function (rays) {
+var solarflare = function (rays) {
 	var $element = document.createElement('div');
 
 	if (Array.isArray(rays)) {
-		rays.forEach((e, i) => {
+		rays.forEach(function (e, i) {
 			if (i === 0 && typeof e === 'string') {
 				if (e.length > 0) {
 					$element = document.createElement(e);
@@ -122,7 +100,7 @@ el = function (rays) {
 
 			if (typeof e === 'object') {
 				if (Array.isArray(e)) {
-					$element.appendChild(el(e));
+					$element.appendChild(solarflare(e));
 				} else {
 					Object.keys(e).filter((key) => {
 						$element.setAttribute(key, e[key]);
@@ -135,64 +113,9 @@ el = function (rays) {
 	return $element;
 };
 
-module.exports = el;
+module.exports = solarflare;
 
 
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-function http(url, options) {
-	var self = this;
-
-	var then = function (callback) { 
-		if (typeof callback === 'function') { 
-			callback(); 
-		} 
-		
-		return self; 
-	};
-
-	var error = function (callback) { 
-		if (typeof callback === 'function') { 
-			callback(); 
-		}
-		
-		return self; 
-	};
-
-	var xhr = XMLHttpRequest();
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4 && xhr.status === 200) {
-			then();
-		} else {
-			error();
-		}
-	};
-	xhr.open(options.method || 'GET', url, true);
-	xhr.send();
-};
-
-module.exports = http;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports) {
-
-function mount(element, target) {
-	if (!target) {
-		target = this;
-	}
-
-	if (target && target.nodeType) {
-		this.appendChild(element);
-	}
-};
-
-document.body.mount = mount;
-
-module.exports = mount;
 
 /***/ })
 /******/ ]);
