@@ -1,6 +1,6 @@
 {
   "name": "solarflare",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A template engine for javascript.",
   "main": "index.js",
   "scripts": {
