@@ -1,3 +1,5 @@
 var solarflare = require('../..');
 
-console.log(solarflare(['div', document.createElement('h1')]));
+var element = solarflare(['div', document.createElement('h1')]);
+
+document.body.appendChild(element);

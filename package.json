@@ -1,7 +1,7 @@
 {
   "name": "solarflare",
   "version": "0.1.0",
-  "description": "A javascript framework.",
+  "description": "A template engine for javascript.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/thirdstrongestguardian/solarflare.git"
   },
   "keywords": [
-    "framework"
+    "templating"
   ],
   "author": "William R. Hansen",
   "license": "MIT",
