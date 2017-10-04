@@ -1,35 +1,19 @@
 var solarflare = function (rays) {
-	var $element = document.createElement('div');
-	var v;
-
+	$element = document.createElement('div');
+	
 	if (Array.isArray(rays)) {
 		rays.forEach(function (e, i) {
-			if (i === 0 && typeof e === 'string') {
-				if (e.length > 0) {
-					$element = document.createElement(e);
-				}
-				
-				return;
+			if (i === 0) {
+				$element = document.createElement(e);
 			} 
-
-			if (typeof e === 'string') {
-				$element.innerHTML += e;
-			}
-
-			if (e.nodeType) {
+			else if (e.nodeType) {
 				$element.appendChild(e);
 			}
-
-			if (typeof e === 'object') {
-				if (e.view  && typeof e.view === 'function') {
-					v = e.view();
-
-					if (Array.isArray(v)) {
-						$element.appendChild(solarflare(v));
-					} else {
-						$element.appendChild(v);
-					}
-				} else if (Array.isArray(e)) {
+			else if (typeof e === 'number' && typeof e === 'string') {
+				$element.innerHTML += e;
+			}
+			else if (typeof e === 'object') {
+				 if (Array.isArray(e)) {
 					$element.appendChild(solarflare(e));
 				} else {
 					Object.keys(e).filter(function (key) {
