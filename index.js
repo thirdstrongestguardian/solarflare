@@ -22,6 +22,8 @@ var solarflare = function (rays) {
 			if (typeof e === 'object') {
 				if (Array.isArray(e)) {
 					$element.appendChild(solarflare(e));
+				} else if (e.view  && typeof e.view === 'function') {
+					$element.appendChild(e.view());
 				} else {
 					Object.keys(e).filter(function (key) {
 						$element.setAttribute(key, e[key]);
