@@ -1,43 +1,48 @@
 var solarflare = function (rays) {
+	// properties
 	var $element = document.createElement('div');
-	var v;
+	var $index = arguments && arguments.length > 1 ? parseInt(arguments[1], 10) : 0;
+	var $rays = rays;
 
-	if (Array.isArray(rays)) {
-		rays.forEach(function (e, i) {
-			if (i === 0 && typeof e === 'string') {
-				if (e.length > 0) {
-					$element = document.createElement(e);
-				}
-				
-				return;
-			} 
+	// methods
+	var handleHTML;
+	var handleObject;
+	var handleTagName;
 
-			if (typeof e === 'string') {
-				$element.innerHTML += e;
-			}
-
-			if (e.nodeType) {
-				$element.appendChild(e);
-			}
-
-			if (typeof e === 'object') {
-				if (e.view  && typeof e.view === 'function') {
-					v = e.view();
-
-					if (Array.isArray(v)) {
-						$element.appendChild(solarflare(v));
-					} else {
-						$element.appendChild(v);
-					}
-				} else if (Array.isArray(e)) {
-					$element.appendChild(solarflare(e));
-				} else {
-					Object.keys(e).filter(function (key) {
-						$element.setAttribute(key, e[key]);
-					});
-				}
-			}
-		});
+	handleHTML = function () {
+		if ($index === 0) {
+			$element = handleTagName($rays);
+		} else {
+			$element.innerHTML += $rays;
+		}
+	};
+	
+	handleObject = function ($rays) {
+		if ($rays.view && typeof $rays.view === 'function') {
+			$element.appendChild(solarflare($rays.view()));
+		} else if (Array.isArray($rays)) {
+			$rays.forEach(solarflare);
+		} else {
+			Object.keys($rays).filter(function (key) {
+				$element.setAttribute(key, e[key]);
+			});
+		}
+	};
+	
+	handleTagName = function ($rays) {
+		if ($rays.length > 0) {
+			return document.createElement($rays);
+		}
+	
+		return document.createElement('div');
+	}
+	
+	if (typeof $rays === 'number' || typeof $rays === 'string') {
+		handleHTML();
+	} else if ($rays.nodeType) {
+		$element.appendChild();
+	} else if (typeof $rays === 'object') {
+		handleObject();
 	}
 
 	return $element;
