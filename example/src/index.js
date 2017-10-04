@@ -1,4 +1,4 @@
-var solarflare = require('../..');
+var solarflare = require('solarflare');
 
 var element = solarflare(['div', ['h1', 'Hello World']]);
 
