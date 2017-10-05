@@ -9,7 +9,7 @@ var solarflare = function (rays) {
 			else if (e.nodeType) {
 				$element.appendChild(e);
 			}
-			else if (typeof e === 'number' && typeof e === 'string') {
+			else if (typeof e === 'number' || typeof e === 'string') {
 				$element.innerHTML += e;
 			}
 			else if (typeof e === 'object') {

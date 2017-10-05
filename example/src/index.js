@@ -1,5 +1,12 @@
 var solarflare = require('solarflare');
 
-var element = solarflare(['div', ['h1', 'Hello World']]);
+var layout = ['body',
+	['h1', 'Hello World'],
+	['div',
+		['h2', 'Smaller World']
+	]
+]
 
-document.body.appendChild(element);
+var body = solarflare(layout);
+
+document.body = body;

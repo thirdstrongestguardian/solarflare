@@ -69,9 +69,16 @@
 
 var solarflare = __webpack_require__(1);
 
-var element = solarflare(['div', document.createElement('h1')]);
+var layout = ['body',
+	['h1', 'Hello World'],
+	['div',
+		['h2', 'Smaller World']
+	]
+]
 
-document.body.appendChild(element);
+var body = solarflare(layout);
+
+document.body = body;
 
 /***/ }),
 /* 1 */
