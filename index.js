@@ -1,5 +1,5 @@
 var solarflare = function (rays) {
-	$element = document.createElement('div');
+	var $element = document.createElement('div');
 	
 	if (Array.isArray(rays)) {
 		rays.forEach(function (e, i) {
