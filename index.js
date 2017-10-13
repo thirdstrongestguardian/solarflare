@@ -3,8 +3,10 @@ var solarflare = function (rays) {
 	
 	if (Array.isArray(rays)) {
 		rays.forEach(function (e, i) {
-			if (i === 0) {
-				$element = document.createElement(e);
+			if (i === 0 && typeof e === 'string') {
+				if (e.length > 0) {
+					$element = document.createElement(e);
+				}
 			} 
 			else if (e.nodeType) {
 				$element.appendChild(e);
