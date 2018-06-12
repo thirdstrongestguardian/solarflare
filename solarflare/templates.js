@@ -20,6 +20,8 @@ var templates = {
 		});
 	},
 	parse: function (html, model) {
+		html = html.trim();
+
 		if (model) {
 			for (var key in model) {
 				console.log(key + ': ' + model[key]);
