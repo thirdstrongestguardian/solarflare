@@ -19,7 +19,23 @@ var templates = {
 			templates._templates[key] = data;
 		});
 	},
+	parse: function (html, model) {
+		if (model) {
+			for (var key in model) {
+				console.log(key + ': ' + model[key]);
+				while (html.indexOf('{{' + key + '}}') >= 0) {
+					html = html.replace('{{' + key + '}}', model[key]);
+				}
+			}
+		}
 
+		return html;
+	},
+	parseElement: function (html, model) {
+		var temp = document.createElement('div');
+		temp.innerHTML = $.templates.parse(html, model);
+		return temp.firstChild;
+	}
 };
 
 module.exports = templates;
