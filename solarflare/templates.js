@@ -24,7 +24,6 @@ var templates = {
 
 		if (model) {
 			for (var key in model) {
-				console.log(key + ': ' + model[key]);
 				while (html.indexOf('{{' + key + '}}') >= 0) {
 					html = html.replace('{{' + key + '}}', model[key]);
 				}
