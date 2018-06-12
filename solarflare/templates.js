@@ -12,7 +12,7 @@ var templates = {
 		return temp.firstChild;
 	},
 	get: function (key, model) {
-		return templates.parse($.templates._templates[key], model);
+		return templates.parse(templates._templates[key], model);
 	},
 	load: function (key, url) {
 		http.get(url, function (data) {
@@ -33,7 +33,7 @@ var templates = {
 	},
 	parseElement: function (html, model) {
 		var temp = document.createElement('div');
-		temp.innerHTML = $.templates.parse(html, model);
+		temp.innerHTML = templates.parse(html, model);
 		return temp.firstChild;
 	}
 };
