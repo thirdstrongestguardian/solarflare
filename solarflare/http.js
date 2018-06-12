@@ -1,6 +1,6 @@
 var http = {
 	get: function (url, success) {
-		return this.ajax(url, null, 'GET', success);
+		return http.send(url, null, 'GET', success);
 	},
 	getJson: function (url, success) {
 		return this.getAjax(url, function (data) {
@@ -9,7 +9,7 @@ var http = {
 		});
 	},
 	post: function (url, data, success) {
-		return this.ajax(url, data, 'POST', success);
+		return http.send(url, data, 'POST', success);
 	},
 	postJson: function (url, data, success) {
 		return this.postAjax(url, data, function (data) {
