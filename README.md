@@ -1,3 +1,3 @@
 # solarflare
 
-Simple templating engine for the browser.
+Simple JS framework. More features will be added later.
