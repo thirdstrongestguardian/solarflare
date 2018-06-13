@@ -1,3 +1,3 @@
 module.exports = function (el, parent) {
-	parent.appendChild(el);
+	(parent || document.body).appendChild(el);
 };
